@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190204115623) do
+ActiveRecord::Schema.define(version: 20190328140326) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "content"
@@ -25,8 +25,11 @@ ActiveRecord::Schema.define(version: 20190204115623) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "activation_digest"
+    t.boolean  "activated",         default: false
+    t.datetime "activated_at"
   end
 
 end

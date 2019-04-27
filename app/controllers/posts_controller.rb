@@ -6,7 +6,12 @@ class PostsController < ApplicationController
     @new_post.save
     redirect_to root_path
   end
+  def index
 
+  end
+  def show
+
+  end
   private
     def post_params
       params.require(:post).permit(:content)
