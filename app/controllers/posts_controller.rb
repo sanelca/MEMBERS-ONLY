@@ -7,10 +7,10 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
   def index
-
+    @posts = Post.all
   end
-  def show
-
+  def new
+    @post = Post.new
   end
   private
     def post_params
