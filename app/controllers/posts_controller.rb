@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :logged_in_user, only: [:destroy, :create]
   before_action :correct_user, only: :destroy
   def create
-    @new_post = current_user.posts.new(post_params)
+    @new_post = current_user.posts.build(post_params)
     @new_post.save
     redirect_to root_path
   end
