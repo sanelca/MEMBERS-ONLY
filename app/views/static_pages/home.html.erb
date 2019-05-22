@@ -1,0 +1,33 @@
+
+<% unless logged_in? %>
+<div id="reminder" class="center jumbotron">
+  <h1>Welcome to <strong>Members Only!</strong></h1>
+  <h2>
+    Click <%= link_to "here", "#" %> to log in. Not yet a member? Click the link below to register.
+  </h2>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+<% end %>
+
+<div class="row">
+  <aside class="col-md-2">
+
+    <section class="user_info">
+      <% if logged_in? %>
+      <h1>
+        <%= link_to current_user.username, current_user %>
+      </h1>
+      <% end %>
+    </section>
+  </aside>
+
+  <div class="col-md-6">
+    <ul class="posts">
+      <%= form_for @new_post, url: posts_path do |f| %>
+        <%= f.text_area :content, placeholder: "Got anything to share?" %>
+        <%= f.submit "Post", class: 'btn btn-primary' %>
+      <% end if logged_in? %>
+    </ul>
+  </div>
+
+</div>
